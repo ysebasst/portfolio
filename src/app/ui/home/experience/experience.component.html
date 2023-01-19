@@ -1,0 +1,12 @@
+<section id="experience" class="experience">
+  <div class="experience__container">
+    <h2 class="experience__title">Experience</h2>
+    <ul class="job-list">
+      <li class="job" *ngFor="let job of jobs">
+        <h3 class="job__name">{{ job.name }}</h3>
+        <p class="job__info">{{ job.info }}</p>
+        <p class="job__place">{{ job.place }}</p>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section id="repositories" class="repositories">
+  <div class="repositories__container">
+    <h2 class="repositories__title">Repositories</h2>
+    <ul class="repository-list">
+      <li class="repository" *ngFor="let repository of repositoriesToShow">
+        <h3 class="repository__name">{{ repository?.name }}</h3>
+        <p class="repository__description" title="{{ repository?.description }}">{{ repository?.description || 'No description found' }}</p>
+        <h4 class="repository__topics-title">Topics</h4>
+        <ul class="topic-list">
+          <li class="topic" *ngIf="repository?.topics?.length === 0">No topics found</li>
+          <li class="topic" *ngFor="let topic of repository?.topics">
+            {{ topic }}
+          </li>
+        </ul>
+        <a class="button" [href]="repository?.html_url" target="_blank" rel="noopener noreferrer">Go to repository</a>
+      </li>
+    </ul>
+    <div class="button-container">
+      <button 
+        class="button" 
+        *ngIf="quantityRepositories !== repositories?.length"
+        (click)="showMore()"
+      >
+        Show more
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<section id="contact" class="contact">
+  <div class="contact__container">
+    <h2 class="contact__title">Contact</h2>
+    <ul class="item-list">
+      <li class="item" *ngFor="let item of items">
+        <a class="item__link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+          <app-icon [type]="item.icon"></app-icon>
+          <h4 class="item__name">{{ item.name }}</h4>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<nav class="nav">
+  <ul class="nav__menu" [ngClass]="{'nav__menu--show': showNav}">
+    <li *ngFor="let route of routes" class="nav__item">
+      <a class="nav__link" [href]="route.path" routerLinkActive="nav__link--active">{{ route.name }}</a>
+    </li>
+  </ul>
+  <div class="nav__toggle" (click)="changeShowNav($event)">
+    <app-icon [type]="showNav ? 'close' : 'menu'"></app-icon>
+  </div>
+</nav>

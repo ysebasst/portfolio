@@ -1,0 +1,91 @@
+@use "~src/styles/colors";
+@use "~src/styles/mixins" as *;
+
+.skills {
+  padding: 2.5rem 1.5rem;
+  background-color: colors.$secondary;
+  color: colors.$white;
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    margin: 1rem 0;
+    text-align: center;
+
+    @include tablet() {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.skill {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  color: colors.$dark;
+  background-color: colors.$white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  
+  &__title {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    max-width: 80px;
+  }
+  
+  &__content {
+    flex-grow: 1;
+    padding: 0 1rem;
+    max-height: 0;
+    list-style-type: none;
+    border-top: 1px solid #{colors.$light-gray};
+    transition: all 0.3s;
+    
+    &--show {
+      padding: 0.5rem 1rem;
+      max-height: unset;
+    }
+  }
+  
+  &__item {
+    padding: 0.25rem 0;
+    text-align: center;
+  }
+  
+  &__button {
+    padding: 0.25rem 0;
+    border: none;
+    border-top: 1px solid #{colors.$light-gray};
+    cursor: pointer;
+    user-select: none;
+
+    .arrow {
+      display: block;
+      transform: rotate(90deg);
+      
+      &--active {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}

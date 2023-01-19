@@ -1,0 +1,17 @@
+<section id="skills" class="skills">
+  <div class="skills__container">
+    <h2 class="skills__title">Skills</h2>
+    <ul class="skill-list">
+      <li class="skill" *ngFor="let skill of skills; index as i" (click)="changeShowSkills(i)">
+        <h3 class="skill__title">{{ skill.title }}</h3>
+        <img class="skill__image" [src]="skill.imageUrl" alt="image {{ skill.title }}">
+        <ul class="skill__content" [ngClass]="{'skill__content--show': skill.active}">
+          <li class="skill__item" *ngFor="let item of skill.content">{{ item }}</li>
+        </ul>
+        <button class="skill__button">
+          <span class="arrow" [ngClass]="{'arrow--active': skill.active}">➤</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>

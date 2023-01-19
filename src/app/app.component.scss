@@ -1,0 +1,8 @@
+@use "~src/styles/colors";
+@use "~src/styles/mixins" as *;
+
+#content {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-grow: 1;
+}

@@ -1,0 +1,60 @@
+@use "~src/styles/colors";
+@use "~src/styles/mixins" as *;
+
+.main {
+  padding: 0 1.5rem;
+  color: colors.$white;
+  background-color: colors.$dark-blue;
+  user-select: none;
+  
+  &__container {
+    @include container;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 8px 20px;
+    
+    @include tablet() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__info {
+    order: 1;
+    
+    @include toTablet() {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+  
+  &__avatar {
+    order: 2;
+    max-width: 350px;
+    filter: grayscale(0.625);
+    
+    @include toTablet() {
+      order: 0;
+      width: 240px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.name {
+  margin: 0.5rem 0;
+
+  @include tablet() {
+    font-size: 3rem;
+  }
+}
+
+.occupation {
+  margin: 0;
+  font-family: monospace;
+  font-size: 1.25rem;
+  
+  @include tablet() {
+    font-size: 2rem;
+  }
+}
